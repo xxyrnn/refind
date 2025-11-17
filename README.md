@@ -40,4 +40,4 @@ python3 refind.py ./folder "word"
 ## TODO
 
 - Add logic to choose between searching only in the given directory or recursively
-- Add logic to only find the pattern `count` (or less if `count` is not reached) times and then exit
+- Add logic to only find the pattern `count` times (or less if `count` is not reached) and then exit
