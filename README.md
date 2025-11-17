@@ -14,10 +14,10 @@ git clone https://github.com/xxyrnn/refind.git
 
 ## Usage
 
-The script takes two positional parameters: `path` and `pattern`.
+The script takes two positional parameters: `path` and `pattern`
 
 `path`: where to look for files, using "/" and "\\" makes no difference since it is
-then parsed through the pathlib module
+then parsed through the pathlib module \
 `pattern`: what to search in the files, it is read as a raw string and used as a regex
 pattern, so it can contain all the regex special flags without backslashes
 
@@ -25,15 +25,15 @@ pattern, so it can contain all the regex special flags without backslashes
 
 - Search for words containing at least one lower letter in the desktop folder recursively
 
-```bash
-python3 refind.py ~/Desktop "[a-z]+"
-```
+	```bash
+	python3 refind.py ~/Desktop "[a-z]+"
+	```
 
 - Search for the word "word" in all the files in `./folder` recursively
 
-```bash
-python3 refind.py ./folder "word"
-```
+	```bash
+	python3 refind.py ./folder "word"
+	```
 
 ---
 
