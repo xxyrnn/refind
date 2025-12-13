@@ -4,7 +4,7 @@ Search for the given pattern in all the files within the given path and its subd
 
 ---
 
-## Download
+## Installation
 
 Clone the repository:
 
@@ -14,30 +14,36 @@ git clone https://github.com/xxyrnn/refind.git
 
 ## Usage
 
-The script takes two positional parameters: `path` and `pattern`
+The script takes two required parameters:
+- `path`: where to look for files, using `/` or `\` makes no difference as it is
+parsed through the `pathlib` module
+- `pattern`: what to search in the files, it is a regex
 
-`path`: where to look for files, using "/" and "\\" makes no difference since it is
-then parsed through the pathlib module \
-`pattern`: what to search in the files, it is read as a raw string and used as a regex
-pattern, so it can contain all the regex special flags without backslashes
+And two optional parameters:
+- `-c`: maximum number of files to find
+- `-r`: if used, the script will search for files recursively in all subdirectories
+
+**N.B.:** `pattern` is parsed as a raw string, so characters like
+parenthesis, brackets and `.*?` must be escaped (e.g. `\)`, `\.`) if you want them
+to be read as normal symbols, otherwise they will be parsed as special flags
 
 ## Examples
 
-- Search for words containing at least one lower letter in the desktop folder recursively
+- Search in the Desktop folder for files containing a word of at least one lowercase
+letter
 
 	```bash
-	python3 refind.py ~/Desktop "[a-z]+"
+	python3 refind.py "~/Desktop" "[a-z]+"
 	```
 
-- Search for the word "word" in all the files in `./folder` recursively
+- Search recursively in `./folder` for all the files containing the word "word"
 
 	```bash
-	python3 refind.py ./folder "word"
+	python3 refind.py -r "./folder" "word"
 	```
+ 
+- Search recursively in `/` for maximum 10 files containing a three-digit number
 
----
-
-## TODO
-
-- Add logic to choose between searching only in the given directory or recursively
-- Add logic to only find the pattern `count` times (or less if `count` is not reached) and then exit
+	```bash
+	python3 refind.py -r -c 10 "/" "\b[0-9]{3}\b"
+	```
