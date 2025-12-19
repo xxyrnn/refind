@@ -20,7 +20,7 @@ And two optional parameters:
 - `-c`: maximum number of files to find
 - `-r`: if used, the script will search for files recursively in all subdirectories
 
-> [!TIP]
+> [!NOTE]
 > `pattern` is parsed as a raw string, so characters like parenthesis, brackets and
 > `.*?` must be escaped (e.g. `\)`, `\.`) if you want them to be read as normal
 > symbols, otherwise they will be parsed as special flags
